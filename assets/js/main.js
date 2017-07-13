@@ -1,3 +1,5 @@
+var contadorPlanetas = 0;
+
 function getJSON(url) {
 	return new Promise(function (resolve, reject) {
 		/*pedimos data al server atraveés de un nuevo objeto  que se esta guardando en ajax*/
@@ -52,11 +54,14 @@ getJSON("data/earth-like-results.json")
 		</div>*/
 
 function imprimirPlaneta(resultadoPlaneta){
+	contadorPlanetas++;
+	/*guardamos en variables los datos de los planetas que nos dio nuestra funcion getJson*/
 	var nombre = resultadoPlaneta.pl_name;
 	var agno = resultadoPlaneta.pl_disc;
 	var telescopio = resultadoPlaneta.pl_telescope;
 	var contenedorPadre = document.getElementById("contenedorPlanetas");
 	
+	/*Creamos la estructura de la tarjeta que se muestra en html de forma dinamica */
 	var row = document.createElement("div");
 	row.className ="row";
 	var columna = document.createElement("div");
@@ -69,7 +74,8 @@ function imprimirPlaneta(resultadoPlaneta){
 	contenedorImg.className ="card-image";
 	card.appendChild(contenedorImg);
 	var imagen= document.createElement("img");
-	imagen.src = "static/img/planeta1.jpg";
+	imagen.src = "static/img/" + contadorPlanetas + ".jpg";
+	
 	contenedorImg.appendChild(imagen);
 	var contenedorTexto = document.createElement("div");
 	contenedorTexto.className ="card-content";
@@ -84,9 +90,6 @@ function imprimirPlaneta(resultadoPlaneta){
 	contenedorTexto.appendChild(agnoTxt);
 	contenedorTexto.appendChild(telescopioTxt);
 	contenedorPadre.appendChild(row);
-
-	console.log(row);
-
 }
 
   
