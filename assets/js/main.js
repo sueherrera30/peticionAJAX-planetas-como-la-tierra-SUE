@@ -84,8 +84,8 @@ function imprimirPlaneta(resultadoPlaneta){
 	var agnoTxt = document.createElement("p");
 	var telescopioTxt = document.createElement("p");
 	nombreTxt.innerText= nombre;
-	agnoTxt.innerText= agno;
-	telescopioTxt.innerText= telescopio;
+	agnoTxt.innerText= "Año de descubrimiento:" +" "+ agno;
+	telescopioTxt.innerText="vista con telescopio:" +" "+  telescopio;
 	contenedorTexto.appendChild(nombreTxt);
 	contenedorTexto.appendChild(agnoTxt);
 	contenedorTexto.appendChild(telescopioTxt);
